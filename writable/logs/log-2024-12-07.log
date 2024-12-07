@@ -1,0 +1,30 @@
+CRITICAL - 2024-12-07 02:29:51 --> ErrorException: include(inc/header.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in APPPATH\Views\home\index.php on line 1.
+ 1 APPPATH\Views\home\index.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(inc/header.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\ProyectoTreesCI\\app\\Views\\home\\index.php', 1)
+ 2 APPPATH\Views\home\index.php(1): include()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ProyectoTreesCI\\app\\Views\\home\\index.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/index', [], true)
+ 6 APPPATH\Controllers\Home.php(36): view('home/index', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-07 02:29:56 --> ErrorException: include(inc/header.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in APPPATH\Views\home\index.php on line 1.
+ 1 APPPATH\Views\home\index.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(inc/header.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\ProyectoTreesCI\\app\\Views\\home\\index.php', 1)
+ 2 APPPATH\Views\home\index.php(1): include()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ProyectoTreesCI\\app\\Views\\home\\index.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/index', [], true)
+ 6 APPPATH\Controllers\Home.php(36): view('home/index', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
