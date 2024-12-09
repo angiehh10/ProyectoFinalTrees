@@ -11,6 +11,7 @@ $routes->post('/login', 'Home::processLogin'); // Procesar inicio de sesión
 $routes->get('/logout', 'Home::logout'); // Ruta para cerrar sesión
 $routes->get('/admin/viewFriendTrees/(:num)', 'Admin::getFriendTrees/$1', ['filter' => 'auth:Administrador']);
 $routes->get('/admin', 'Admin::index', ['filter' => 'auth:Administrador']); // Solo para administradores
+$routes->get('/amigo', 'Amigo::index', ['filter' => 'auth:Amigo']); // Solo para administradores
 $routes->get('/register', 'Home::register'); // Formulario de registro
 $routes->post('/register/store', 'Home::store'); // Procesar registro
 $routes->post('/admin/createSpecies', 'Admin::createSpecies', ['filter' => 'auth:Administrador']);
