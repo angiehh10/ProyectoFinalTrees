@@ -14,8 +14,12 @@ $routes->get('/admin', 'Admin::index', ['filter' => 'auth:Administrador']); // S
 $routes->get('/amigo', 'Amigo::index', ['filter' => 'auth:Amigo']); // Solo para administradores
 $routes->get('/register', 'Home::register'); // Formulario de registro
 $routes->post('/register/store', 'Home::store'); // Procesar registro
-$routes->get('/admin/registrarActualizacionView', 'Admin::registrarActualizacionView', ['filter' => 'auth:Administrador']);
+$routes->post('/admin/registrarActualizacion', 'Admin::registrarActualizacion', ['filter' => 'auth:Administrador']);
+$routes->get('/admin/historial/(:num)', 'Admin::historial/$1', ['filter' => 'auth:Administrador']);
+$routes->get('/admin/historial', 'Admin::historial', ['filter' => 'auth:Administrador']);
+$routes->get('/admin/historial', 'Admin::index', ['filter' => 'auth:Administrador']);
 $routes->post('/admin/saveEspecie', 'Admin::createSpecies');
+$routes->get('/admin', 'Admin::index');
 $routes->post('/admin/createSpecies', 'Admin::createSpecies', ['filter' => 'auth:Administrador']);
 $routes->post('/admin/updateSpecies', 'Admin::updateSpecies', ['filter' => 'auth:Administrador']);
 $routes->get('/admin/deleteSpecies/(:num)', 'Admin::deleteSpecies/$1', ['filter' => 'auth:Administrador']);
@@ -24,8 +28,10 @@ $routes->post('/admin/updateTree', 'Admin::updateTree', ['filter' => 'auth:Admin
 $routes->get('/admin/verAmigos', 'Admin::verAmigos', ['filter' => 'auth:Administrador']);
 $routes->post('/admin/verAmigos', 'Admin::verAmigos', ['filter' => 'auth:Administrador']);
 $routes->get('/operador', 'Operador::index', ['filter' => 'auth:Operador']); // Dashboard del Operador
+$routes->post('/operador/registrarActualizacion', 'Operador::registrarActualizacion', ['filter' => 'auth:Operador']);
 $routes->get('/operador/historial/(:num)', 'Operador::historial/$1', ['filter' => 'auth:Operador']); // Historial de actualizaciones de un árbol
-$routes->post('/operador/actualizacion', 'Operador::registrarActualizacion', ['filter' => 'auth:Operador']); // Registrar actualización de árbol
+
+
 
 
 

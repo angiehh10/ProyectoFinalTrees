@@ -20,7 +20,7 @@
             </form>
 
             <!-- Tabla de historial -->
-            <table class="table">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>ID Árbol</th>
@@ -31,27 +31,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (!empty($historial)): ?>
-                        <?php foreach ($historial as $actualizacion): ?>
-                            <tr>
-                                <td><?= $actualizacion['arbol_id'] ?></td>
-                                <td><?= $actualizacion['fecha_actualizacion'] ?></td>
-                                <td><?= $actualizacion['tamano'] ?></td>
-                                <td><?= $actualizacion['estado'] ?></td>
-                                <td>
-                                    <?php if (!empty($actualizacion['foto'])): ?>
-                                        <img src="<?= base_url($actualizacion['foto']) ?>" alt="Foto del árbol" width="100">
-                                    <?php else: ?>
-                                        Sin foto
-                                    <?php endif; ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php else: ?>
+                    <?php foreach ($historial as $item): ?>
                         <tr>
-                            <td colspan="4">No hay actualizaciones registradas para este árbol.</td>
+                            <td><?= esc($item['arbol_id']); ?></td>
+                            <td><?= esc($item['fecha_actualizacion']); ?></td>
+                            <td><?= esc($item['tamano']); ?></td>
+                            <td><?= esc($item['estado']); ?></td>
+                            <td>
+                                <?php if (!empty($item['foto'])): ?>
+                                    <img src="<?= base_url($item['foto']); ?>" alt="Foto del árbol" width="100">
+                                <?php else: ?>
+                                    Sin foto
+                                <?php endif; ?>
+                            </td>
                         </tr>
-                    <?php endif; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

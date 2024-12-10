@@ -45,7 +45,7 @@ class Operador extends BaseController
             }
         }
 
-        $data = [ // Asegúrate de que esta sea la única definición de $data
+        $data = [ 
             'totalAmigos' => $userModel->countAmigos(),
             'totalArbolesDisponibles' => $arbolModel->countArbolesDisponibles(),
             'tab' => $tab,
@@ -56,8 +56,6 @@ class Operador extends BaseController
 
         return view('operador/dashboard', $data); // Utiliza la misma variable $data
     }
-
-
 
     public function historial($arbol_id = null)
     {
@@ -99,13 +97,15 @@ class Operador extends BaseController
             $filePath = WRITEPATH . 'uploads';
             $file->move($filePath);
             $data['foto'] = '/uploads/' . $file->getName();
+        } else {
+            return redirect()->back()->with('error', 'Error al cargar la foto.');
         }
 
-        if ($actualizacionModel->registrarActualizacion($data)) {
-            return redirect()->to('/operador/historial/' . $data['arbol_id'])->with('mensaje', 'Actualización registrada correctamente.');
+        // Intentar registrar la actualización
+        if ($actualizacionModel->insert($data)) {
+            return redirect()->back()->with('mensaje', 'Actualización registrada correctamente.');
         } else {
             return redirect()->back()->with('error', 'No se pudo registrar la actualización.');
         }
     }
-
 }

@@ -6,6 +6,7 @@ use App\Models\UserModel;
 use App\Models\ArbolModel;
 use App\Models\EspecieModel;
 use App\Models\AmigoArbolModel;
+use App\Models\ActualizacionModel;
 
 
 class Admin extends BaseController
@@ -29,20 +30,21 @@ class Admin extends BaseController
 
         $userModel = new UserModel();
         $arbolModel = new ArbolModel();
+        $actualizacionModel = new ActualizacionModel();
         $especieModel = new EspecieModel();
 
-        $amigos = $userModel->obtenerAmigos();
-        $tab = $this->request->getGet('tab') ?? 'especies';
-        $amigo_id = $this->request->getGet('amigo_id');
+        $tab = $this->request->getGet('tab') ?? 'actualizacion';
+        $arbol_id = $this->request->getGet('arbol_id'); // ID del árbol seleccionado
 
-        $arboles = [];
-        $especies = $especieModel->findAll();
-        $amigoSeleccionado = null;
+        $arboles = $arbolModel->findAll(); // Obtener todos los árboles
+        $especies = $especieModel->findAll(); // Obtener todas las especies
+        $arbol = null; // Inicializar como null para evitar errores si no hay árbol seleccionado
+        $historial = [];
 
-        if ($tab === 'amigos' && $amigo_id) {
-            $amigoSeleccionado = $userModel->find($amigo_id);
-            if ($amigoSeleccionado) {
-                $arboles = $arbolModel->where('ubicacion_geografica', $amigoSeleccionado['nombre_usuario'])->findAll();
+        if ($tab === 'historial' && $arbol_id) {
+            $arbol = $arbolModel->find($arbol_id); // Obtener los detalles del árbol seleccionado
+            if ($arbol) {
+                $historial = $actualizacionModel->obtenerActualizacionesPorArbol($arbol_id); // Historial del árbol
             }
         }
 
@@ -50,17 +52,16 @@ class Admin extends BaseController
             'totalAmigos' => $userModel->countAmigos(),
             'totalArbolesDisponibles' => $arbolModel->countArbolesDisponibles(),
             'totalArbolesVendidos' => $arbolModel->countArbolesVendidos(),
-            'especies' => $especies,
-            'arboles' => $arboles,
-            'amigos' => $amigos,
-            'amigoSeleccionado' => $amigoSeleccionado,
             'tab' => $tab,
-            'mensaje' => session()->getFlashdata('mensaje'),
-            'error' => session()->getFlashdata('error'),
+            'arboles' => $arboles,
+            'especies' => $especies,
+            'arbol' => $arbol, // Enviar el árbol seleccionado o null
+            'historial' => $historial, // Historial de actualizaciones del árbol seleccionado
         ];
 
         return view('admin/dashboard', $data);
     }
+
 
     public function verAmigos()
     {
@@ -86,35 +87,27 @@ class Admin extends BaseController
         ]);
     }
 
-
-
-
     public function registrarActualizacion()
     {
-        $this->checkAdmin();
+        $this->checkAdmin(); // Verifica si el usuario es administrador
 
         $actualizacionModel = new ActualizacionModel();
 
-        $file = $this->request->getFile('foto');
-        $fotoPath = null;
-
-        // Manejar el archivo de foto
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            $newName = $file->getRandomName();
-            $file->move(WRITEPATH . 'uploads/arboles', $newName);
-            $fotoPath = 'uploads/arboles/' . $newName;
-        }
-
-        // Preparar los datos
         $data = [
             'arbol_id' => $this->request->getPost('arbol_id'),
             'tamano' => $this->request->getPost('tamano'),
             'estado' => $this->request->getPost('estado'),
             'fecha_actualizacion' => date('Y-m-d H:i:s'),
-            'foto' => $fotoPath,
         ];
 
-        // Guardar la actualización
+        // Manejar la foto
+        $file = $this->request->getFile('foto');
+        if ($file && $file->isValid()) {
+            $filePath = WRITEPATH . 'uploads';
+            $file->move($filePath);
+            $data['foto'] = '/uploads/' . $file->getName();
+        }
+
         if ($actualizacionModel->registrarActualizacion($data)) {
             return redirect()->to('/admin?tab=actualizacion')->with('mensaje', 'Actualización registrada correctamente.');
         } else {
@@ -122,25 +115,26 @@ class Admin extends BaseController
         }
     }
 
-    public function registrarActualizacionView()
+    public function historial($arbol_id = null)
     {
-        $this->checkAdmin(); // Validar si es un administrador
+        $this->checkAdmin();
 
-        $arbolModel = new \App\Models\ArbolModel();
+        $actualizacionModel = new ActualizacionModel();
+        $arbolModel = new ArbolModel();
 
-        // Obtén los árboles de la base de datos
-        $arboles = $arbolModel->obtenerArbolesParaActualizacion();
-
-        // Depuración: Asegúrate de que $arboles tiene datos
-        if (empty($arboles)) {
-            echo "No hay árboles disponibles en la base de datos.";
-            exit();
+        if ($arbol_id) {
+            $historial = $actualizacionModel->obtenerActualizacionesPorArbol($arbol_id);
+        } else {
+            $historial = []; // Si no se pasa un árbol, muestra el historial vacío
         }
 
-        return view('admin/actualizacion', ['arboles' => $arboles]);
+        $data = [
+            'historial' => $historial,
+            'arbol' => $arbolModel->find($arbol_id), // Obtener detalles del árbol
+        ];
+
+        return view('admin/historial', $data);
     }
-
-
 
     public function getFriendTrees($amigo_id)
     {

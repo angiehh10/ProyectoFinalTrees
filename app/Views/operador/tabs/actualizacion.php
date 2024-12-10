@@ -2,10 +2,12 @@
     <div class="card my-4">
         <div class="card-body">
             <h4>Registrar Actualización de Árbol</h4>
-            <form action="<?= base_url('operador/registrarActualizacion'); ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= base_url('/operador/registrarActualizacion'); ?>" method="post" enctype="multipart/form-data">
+                <?= csrf_field(); ?>
                 <div class="mb-3">
                     <label for="arbol_id" class="form-label text-start d-block">Seleccionar Árbol</label>
                     <select name="arbol_id" class="form-control" required>
+                        <option value="">-- Seleccionar un árbol --</option>
                         <?php foreach ($arboles as $arbol): ?>
                             <option value="<?= $arbol['id']; ?>">ID: <?= $arbol['id']; ?> - <?= $arbol['ubicacion_geografica']; ?></option>
                         <?php endforeach; ?>
@@ -18,15 +20,15 @@
                 <div class="mb-3">
                     <label for="estado" class="form-label text-start d-block">Estado</label>
                     <select name="estado" class="form-control" required>
-                        <option value="Disponible">Disponible</option>
                         <option value="Vendido">Vendido</option>
+                        <option value="Disponible">Disponible</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="foto_upload" class="form-label text-start d-block">Foto del Árbol</label>
-                    <input type="file" name="foto_upload" class="form-control" accept="image/*">
+                    <label for="foto" class="form-label text-start d-block">Foto del Árbol</label>
+                    <input type="file" name="foto" class="form-control" accept="image/*" required>
                 </div>
-                <button type="submit" class="btn btn-success btn-sm" style="float: left;">Registrar Actualización</button>
+                <button type="submit" class="btn btn-success">Registrar Actualización</button>
             </form>
         </div>
     </div>

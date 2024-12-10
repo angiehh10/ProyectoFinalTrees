@@ -56,6 +56,9 @@
                 <a class="nav-link <?= $tab === 'actualizacion' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=actualizacion') ?>">Registrar Actualización</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link <?= $tab === 'historial' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=historial') ?>">Historial</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link <?= $tab === 'amigos' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=amigos') ?>">Ver Amigos</a>
             </li>
         </ul>
@@ -74,9 +77,11 @@
                 case 'actualizacion':
                     echo view('admin/tabs/actualizacion', ['arboles' => $arboles]);
                     break;
+                case 'historial':
+                    echo view('admin/tabs/historial', ['arboles' => $arboles, 'historial' => $historial, 'arbol' => $arbol]);
+                    break;
                 case 'amigos':
-                    echo view('admin/tabs/amigos', [
-                    ]);
+                    echo view('admin/tabs/amigos', []);
                     break;
                 default:
                     echo "<p class='text-center'>Seleccione una pestaña para comenzar.</p>";
@@ -91,3 +96,4 @@
     <script src="<?= base_url('js/admin.js'); ?>"></script>
 </body>
 </html>
+
