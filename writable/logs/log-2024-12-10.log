@@ -1,0 +1,82 @@
+CRITICAL - 2024-12-10 03:43:39 --> ErrorException: Undefined variable $totalAmigos
+[Method: GET, Route: operador]
+in APPPATH\Views\operador\dashboard.php on line 24.
+ 1 APPPATH\Views\operador\dashboard.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalAmigos', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\operador\\dashboard.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\operador\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('operador/dashboard', [], true)
+ 5 APPPATH\Controllers\Operador.php(50): view('operador/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Operador->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Operador))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-10 03:43:51 --> ErrorException: Undefined variable $totalAmigos
+[Method: GET, Route: operador]
+in APPPATH\Views\operador\dashboard.php on line 24.
+ 1 APPPATH\Views\operador\dashboard.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalAmigos', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\operador\\dashboard.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\operador\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('operador/dashboard', [], true)
+ 5 APPPATH\Controllers\Operador.php(50): view('operador/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Operador->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Operador))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-10 03:43:51 --> ErrorException: Undefined variable $totalAmigos
+[Method: GET, Route: operador]
+in APPPATH\Views\operador\dashboard.php on line 24.
+ 1 APPPATH\Views\operador\dashboard.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalAmigos', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\operador\\dashboard.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\operador\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('operador/dashboard', [], true)
+ 5 APPPATH\Controllers\Operador.php(50): view('operador/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Operador->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Operador))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-10 03:44:04 --> ErrorException: Undefined variable $totalAmigos
+[Method: GET, Route: operador]
+in APPPATH\Views\operador\dashboard.php on line 24.
+ 1 APPPATH\Views\operador\dashboard.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalAmigos', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\operador\\dashboard.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\operador\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('operador/dashboard', [], true)
+ 5 APPPATH\Controllers\Operador.php(50): view('operador/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Operador->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Operador))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-10 03:49:02 --> ErrorException: Undefined variable $totalArbolesDisponibles
+[Method: GET, Route: operador]
+in APPPATH\Views\operador\dashboard.php on line 32.
+ 1 APPPATH\Views\operador\dashboard.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalArbolesDisponibles', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\operador\\dashboard.php', 32)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\operador\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('operador/dashboard', [], true)
+ 5 APPPATH\Controllers\Operador.php(55): view('operador/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Operador->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Operador))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-10 04:23:25 --> ParseError: syntax error, unexpected variable "$data", expecting "function" or "const"
+[Method: GET, Route: operador]
+in APPPATH\Controllers\Operador.php on line 59.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Controllers\\Operador.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Operador')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Operador')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Operador', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
