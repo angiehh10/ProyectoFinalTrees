@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\ArbolModel;
 use App\Models\EspecieModel;
+use App\Models\AmigoArbolModel;
+
 
 class Admin extends BaseController
 {
@@ -59,6 +61,86 @@ class Admin extends BaseController
 
         return view('admin/dashboard', $data);
     }
+
+    public function verAmigos()
+    {
+        $this->checkAdmin();
+
+        $amigoModel = new UserModel(); // Modelo de amigos
+        $amigoArbolModel = new AmigoArbolModel(); // Modelo de relación amigo-árbol
+        $amigoSeleccionado = $this->request->getPost('amigo_id'); // ID del amigo seleccionado
+
+        $amigos = $amigoModel->where('rol', 'Amigo')->findAll(); // Lista de amigos
+        $arboles = [];
+
+        // Si se selecciona un amigo, obtener sus árboles
+        if (!empty($amigoSeleccionado)) {
+            $arboles = $amigoArbolModel->obtenerArbolesPorAmigo($amigoSeleccionado);
+        }
+
+        // Enviar datos a la vista
+        return view('admin/amigos', [
+            'amigos' => $amigos,
+            'arboles' => $arboles,
+            'amigoSeleccionado' => $amigoSeleccionado
+        ]);
+    }
+
+
+
+
+    public function registrarActualizacion()
+    {
+        $this->checkAdmin();
+
+        $actualizacionModel = new ActualizacionModel();
+
+        $file = $this->request->getFile('foto');
+        $fotoPath = null;
+
+        // Manejar el archivo de foto
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            $file->move(WRITEPATH . 'uploads/arboles', $newName);
+            $fotoPath = 'uploads/arboles/' . $newName;
+        }
+
+        // Preparar los datos
+        $data = [
+            'arbol_id' => $this->request->getPost('arbol_id'),
+            'tamano' => $this->request->getPost('tamano'),
+            'estado' => $this->request->getPost('estado'),
+            'fecha_actualizacion' => date('Y-m-d H:i:s'),
+            'foto' => $fotoPath,
+        ];
+
+        // Guardar la actualización
+        if ($actualizacionModel->registrarActualizacion($data)) {
+            return redirect()->to('/admin?tab=actualizacion')->with('mensaje', 'Actualización registrada correctamente.');
+        } else {
+            return redirect()->back()->with('error', 'No se pudo registrar la actualización.');
+        }
+    }
+
+    public function registrarActualizacionView()
+    {
+        $this->checkAdmin(); // Validar si es un administrador
+
+        $arbolModel = new \App\Models\ArbolModel();
+
+        // Obtén los árboles de la base de datos
+        $arboles = $arbolModel->obtenerArbolesParaActualizacion();
+
+        // Depuración: Asegúrate de que $arboles tiene datos
+        if (empty($arboles)) {
+            echo "No hay árboles disponibles en la base de datos.";
+            exit();
+        }
+
+        return view('admin/actualizacion', ['arboles' => $arboles]);
+    }
+
+
 
     public function getFriendTrees($amigo_id)
     {

@@ -35,6 +35,12 @@ class ArbolModel extends Model
         return $this->find($id);
     }
 
+    public function obtenerArbolesParaActualizacion()
+    {
+        return $this->select('id, ubicacion_geografica')->findAll();
+    }
+
+
     public function countArbolesDisponibles()
     {
         return $this->where('estado', 'Disponible')->countAllResults();
