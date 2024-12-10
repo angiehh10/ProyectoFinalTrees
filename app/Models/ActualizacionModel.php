@@ -8,16 +8,15 @@ class ActualizacionModel extends Model
 {
     protected $table = 'actualizaciones';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['arbol_id', 'tamano', 'estado', 'fecha_actualizacion', 'foto']; // Incluye la columna foto
+    protected $allowedFields = ['arbol_id', 'tamano', 'estado', 'fecha_actualizacion'];
 
     public function registrarActualizacion($data)
     {
-        return $this->insert($data); // Inserta un nuevo registro
+        return $this->insert($data);
     }
 
     public function obtenerActualizacionesPorArbol($arbol_id)
     {
-        return $this->where('arbol_id', $arbol_id)->findAll(); // Obtiene todas las actualizaciones de un árbol
+        return $this->where('arbol_id', $arbol_id)->findAll();
     }
 }
-

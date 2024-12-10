@@ -10,7 +10,7 @@ Options -Indexes
 	RewriteEngine On
 
 	# Cambia esta línea si tu proyecto está en una subcarpeta
-	RewriteBase /ProyectoFinalTreesCopia/public/
+	RewriteBase /ProyectoTreesCI/public
 
 	# Redirect Trailing Slashes...
 	RewriteCond %{REQUEST_FILENAME} !-d

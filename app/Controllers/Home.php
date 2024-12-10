@@ -13,38 +13,27 @@ class Home extends BaseController
 
     public function processLogin()
     {
-        $email = $this->request->getPost('email');
-        $contrasena = $this->request->getPost('contrasena');
+    $email = $this->request->getPost('email');
+    $contrasena = $this->request->getPost('contrasena');
 
-        $userModel = new UserModel();
-        $user = $userModel->loginUser($email, $contrasena);
+    $userModel = new UserModel();
+    $user = $userModel->loginUser($email, $contrasena);
 
-        if ($user && !isset($user['error'])) {
-            // Guardar datos en la sesión
-            session()->set([
-                'usuario_id' => $user['id'],
-                'rol' => $user['rol'],
-                'estado' => $user['estado'],
-                'isLoggedIn' => true,
-            ]);
+    if ($user && !isset($user['error'])) {
+        // Guardar datos en la sesión
+        session()->set([
+            'usuario_id' => $user['id'],
+            'rol' => $user['rol'],
+            'estado' => $user['estado'],
+            'isLoggedIn' => true,
+        ]);
 
-            // Redirigir según el rol
-            switch ($user['rol']) {
-                case 'Administrador':
-                    return redirect()->to('/admin');
-                case 'Amigo':
-                    return redirect()->to('/amigo');
-                case 'Operador':
-                    return redirect()->to('/operador');
-                default:
-                    session()->destroy(); // Si el rol es desconocido, destruir la sesión
-                    return redirect()->to('/login')->with('error', 'Rol no autorizado.');
-            }
-        }
-
-        return redirect()->to('/login')->with('error', 'Usuario o contraseña incorrectos.');
+        // Redirigir según el rol
+        return redirect()->to($user['rol'] === 'Administrador' ? '/admin' : '/amigo');
     }
 
+    return redirect()->to('/login')->with('error', 'Usuario o contraseña incorrectos.');
+    }
 
     public function logout()
     {
