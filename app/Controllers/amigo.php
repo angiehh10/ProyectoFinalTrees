@@ -113,6 +113,7 @@ class Amigo extends BaseController
         return view('amigo/actualizaciones', ['actualizaciones' => $actualizaciones]);
     }
 
+
     public function detalles($id)
     {
         $session = session();
