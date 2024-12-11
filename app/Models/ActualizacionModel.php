@@ -8,7 +8,7 @@ class ActualizacionModel extends Model
 {
     protected $table = 'actualizaciones';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['arbol_id', 'tamano', 'estado', 'fecha_actualizacion'];
+    protected $allowedFields = ['arbol_id', 'tamano', 'estado', 'foto', 'fecha_actualizacion'];
 
     public function registrarActualizacion($data)
     {

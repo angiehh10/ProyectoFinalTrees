@@ -1,7 +1,7 @@
 <div class="card my-4">
     <div class="card-body">
         <h4>Crear Nueva Especie</h4>
-        <form action="<?= base_url('/admin/saveEspecie') ?>" method="POST">
+        <form action="<?= base_url('/admin/createSpecies') ?>" method="POST">
             <div class="mb-3">
                 <label for="nombre_comercial" class="form-label text-start d-block">Nombre Comercial</label> <!-- Alineado a la izquierda -->
                 <input type="text" name="nombre_comercial" id="nombre_comercial" class="form-control" placeholder="Ingrese el nombre comercial" required>
@@ -49,6 +49,7 @@
                                 </div>
                                 <form action="<?= base_url('/admin/updateEspecie/' . $especie['id']) ?>" method="POST">
                                     <?= csrf_field() ?>
+                                    <input type="hidden" name="especie_id" value="<?= $especie['id'] ?>">
                                     <div class="modal-body">
                                         <div class="mb-3">
                                             <label for="nombre_comercial_<?= $especie['id'] ?>" class="form-label text-start d-block">Nombre Comercial</label> <!-- Alineado a la izquierda -->

@@ -53,7 +53,7 @@
                 <a class="nav-link <?= $tab === 'arboles' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=arboles') ?>">Administrar Árboles</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?= $tab === 'actualizacion' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=actualizacion') ?>">Registrar Actualización</a>
+                <a class="nav-link <?= $tab === 'historial' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=historial') ?>">Historial</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <?= $tab === 'amigos' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=amigos') ?>">Ver Amigos</a>
@@ -75,9 +75,8 @@
                 case 'arboles':
                     echo view('admin/tabs/arboles', ['arboles' => $arboles, 'especies' => $especies]);
                     break;
-
-                case 'actualizacion':
-                    echo view('admin/tabs/actualizacion', ['arboles' => $arboles]);
+                case 'historial':
+                    echo view('admin/tabs/historial', ['arboles' => $arboles, 'historial' => $historial, 'arbol' => $arbol]);
                     break;
                 case 'amigos':
                     echo view('admin/tabs/amigos', ['arboles' => $arboles, 'amigos' => $amigos]);

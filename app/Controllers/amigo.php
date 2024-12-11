@@ -112,4 +112,28 @@ class Amigo extends BaseController
 
         return view('amigo/actualizaciones', ['actualizaciones' => $actualizaciones]);
     }
+
+    public function detalles($id)
+    {
+        $session = session();
+    
+        // Verificar si el usuario tiene el rol 'Amigo'
+        if ($session->get('rol') !== 'Amigo') {
+            return redirect()->to('/')->with('error', 'Acceso no autorizado.');
+        }
+    
+        // Cargar el modelo
+        $amigoArbolModel = new \App\Models\AmigoArbolModel();
+    
+        // Obtener detalles del árbol por ID
+        $arbol = $amigoArbolModel->obtenerArbolPorId($id);
+    
+        // Si no se encuentra el árbol, redirige con un mensaje de error
+        if (!$arbol) {
+            return redirect()->to('/amigo')->with('error', 'Árbol no encontrado.');
+        }
+    
+        // Retorna la vista con los detalles del árbol
+        return view('amigo/detalles', ['arbol' => $arbol]);
+    }
 }

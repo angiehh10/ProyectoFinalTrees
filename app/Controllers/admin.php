@@ -6,6 +6,7 @@ use App\Models\UserModel;
 use App\Models\ArbolModel;
 use App\Models\EspecieModel;
 use App\Models\AmigoArbolModel;
+use App\Models\ActualizacionModel;
 
 class Admin extends BaseController
 {
@@ -28,33 +29,57 @@ class Admin extends BaseController
 
         $userModel = new UserModel();
         $arbolModel = new ArbolModel();
+        $actualizacionModel = new ActualizacionModel();
         $especieModel = new EspecieModel();
 
+        // Obtener el tab seleccionado
         $tab = $this->request->getGet('tab') ?? 'especies';
+        $arbol_id = $this->request->getGet('arbol_id');
 
+        // Inicializar datos básicos
+        $arboles = $arbolModel->findAll();
         $especies = $especieModel->findAll();
         $usuarios = $userModel->findAll();
         $amigos = $userModel->obtenerAmigos();
 
-        // Inicializa datos específicos
+        $arbol = null;
+        $historial = [];
+
+        // Obtener historial si el tab es 'historial' y se seleccionó un árbol
+        if ($tab === 'historial' && $arbol_id) {
+            $arbol = $arbolModel->find($arbol_id);
+            if ($arbol) {
+                $historial = $actualizacionModel->obtenerActualizacionesPorArbol($arbol_id);
+            } else {
+                session()->setFlashdata('error', 'Árbol no encontrado.');
+            }
+        }
+
+        // Contar datos generales
         $totalArbolesDisponibles = $arbolModel->where('estado', 'Disponible')->countAllResults();
         $totalArbolesVendidos = $arbolModel->where('estado', 'Vendido')->countAllResults();
+        $totalAmigos = $userModel->countAmigos();
 
+        // Preparar datos para la vista
         $data = [
-            'totalAmigos' => $userModel->countAmigos(),
+            'tab' => $tab,
+            'arbol_id' => $arbol_id,
+            'arboles' => $arboles,
+            'especies' => $especies,
+            'usuarios' => $usuarios,
+            'amigos' => $amigos,
+            'arbol' => $arbol,
+            'historial' => $historial,
+            'totalAmigos' => $totalAmigos,
             'totalArbolesDisponibles' => $totalArbolesDisponibles,
             'totalArbolesVendidos' => $totalArbolesVendidos,
-            'especies' => $especies,
-            'arboles' => [], // Inicializa como vacío
-            'amigos' => $amigos,
-            'usuarios' => $usuarios,
-            'tab' => $tab,
             'mensaje' => session()->getFlashdata('mensaje'),
             'error' => session()->getFlashdata('error'),
         ];
 
         return view('admin/dashboard', $data);
     }
+
 
     public function createTree()
     {
@@ -104,6 +129,86 @@ class Admin extends BaseController
         return redirect()->to('/admin?tab=arboles');
     }
 
+    public function updateTree()
+    {
+        $arbolModel = new ArbolModel();
+        $actualizacionModel = new ActualizacionModel();
+        $ids = $this->request->getPost('update'); // Obtener IDs de los árboles que se actualizarán
+    
+        if (!$ids || empty($ids)) {
+            session()->setFlashdata('error', 'No se seleccionaron árboles para actualizar.');
+            return redirect()->back();
+        }
+    
+        foreach ($ids as $id => $value) {
+            // Datos para actualizar en la tabla `arboles`
+            $dataArbol = [
+                'nombre_comercial' => $this->request->getPost("nombre_comercial[$id]"),
+                'tamano' => $this->request->getPost("tamano[$id]"),
+                'ubicacion_geografica' => $this->request->getPost("ubicacion_geografica[$id]"),
+                'estado' => $this->request->getPost("estado[$id]"),
+            ];
+    
+            // Manejar la imagen, si se envió una
+            $file = $this->request->getFile("imagen[$id]");
+            if ($file && $file->isValid() && !$file->hasMoved()) {
+                $fileName = $file->getRandomName();
+                $file->move(FCPATH . 'uploads', $fileName);
+                $dataArbol['foto'] = $fileName; // Actualizar el campo de la imagen en `arboles`
+            } else {
+                // Si no se subió una nueva imagen, mantener la anterior
+                $existingData = $arbolModel->find($id);
+                if ($existingData && isset($existingData['foto'])) {
+                    $dataArbol['foto'] = $existingData['foto'];
+                }
+            }
+    
+            // Actualizar los datos del árbol en la tabla `arboles`
+            $arbolModel->update($id, $dataArbol);
+    
+            // Registrar una nueva actualización en la tabla `actualizaciones`
+            $dataActualizacion = [
+                'arbol_id' => $id,
+                'tamano' => $dataArbol['tamano'],
+                'estado' => $dataArbol['estado'],
+                'fecha_actualizacion' => date('Y-m-d H:i:s'),
+            ];
+    
+            if (isset($dataArbol['foto'])) {
+                $dataActualizacion['foto'] = $dataArbol['foto'];
+            }
+    
+            $actualizacionModel->insert($dataActualizacion);
+        }
+    
+        // Guardar el mensaje en Flashdata
+        session()->setFlashdata('success', 'Árboles actualizados y actualizaciones registradas correctamente.');
+    
+        // Redirigir al usuario
+        return redirect()->back();
+    }
+    
+    public function historial($arbol_id = null)
+    {
+        $this->checkAdmin();
+
+        $actualizacionModel = new ActualizacionModel();
+        $arbolModel = new ArbolModel();
+
+        if ($arbol_id) {
+            $historial = $actualizacionModel->obtenerActualizacionesPorArbol($arbol_id);
+        } else {
+            $historial = []; // Si no se pasa un árbol, muestra el historial vacío
+        }
+
+        $data = [
+            'historial' => $historial,
+            'arbol' => $arbolModel->find($arbol_id), // Obtener detalles del árbol
+        ];
+
+        return view('admin/historial', $data);
+    }
+
 
     public function crearUsuario()
     {
@@ -113,7 +218,8 @@ class Admin extends BaseController
 
         $data = [
             'email' => $this->request->getPost('email'),
-            'contrasena' => password_hash($this->request->getPost('contrasena'), PASSWORD_DEFAULT),
+            // Encriptar la contraseña con hash SHA-256
+            'contrasena' => hash('sha256', $this->request->getPost('contrasena')),
             'rol' => $this->request->getPost('rol'),
             'estado' => 'Activo',
         ];
@@ -125,45 +231,6 @@ class Admin extends BaseController
         }
     }
 
-    public function updateTree()
-    {
-        $arbolModel = new ArbolModel();
-        $ids = $this->request->getPost('update'); // Obtener IDs de los árboles que se actualizarán
-    
-        foreach ($ids as $id => $value) {
-            $data = [
-                'nombre_comercial' => $this->request->getPost("nombre_comercial[$id]"),
-                'tamano' => $this->request->getPost("tamano[$id]"),
-                'ubicacion_geografica' => $this->request->getPost("ubicacion_geografica[$id]"),
-                'estado' => $this->request->getPost("estado[$id]"),
-            ];
-    
-            // Verificar si se envió un archivo para la imagen
-            $file = $this->request->getFile("imagen[$id]");
-            if ($file && $file->isValid() && !$file->hasMoved()) {
-                // Guardar el archivo en la carpeta 'public/uploads'
-                $fileName = $file->getRandomName();
-                $file->move(FCPATH . 'uploads', $fileName); // `FCPATH` apunta al directorio `public/`
-                $data['foto'] = $fileName; // Actualizar el campo de la imagen
-            }
-    
-            // Si no se envió una nueva imagen, mantener la anterior
-            $existingData = $arbolModel->find($id);
-            if (!isset($data['foto']) && $existingData && isset($existingData['foto'])) {
-                $data['foto'] = $existingData['foto'];
-            }
-    
-            // Actualizar los datos del árbol en la base de datos
-            $arbolModel->update($id, $data);
-        }
-    
-            // Guardar el mensaje en Flashdata
-        session()->setFlashdata('success', 'Árboles actualizados correctamente.');
-
-        // Redirigir al usuario
-        return redirect()->back();
-    }
-    
 
     public function viewFriendTrees($amigo_id)
     {
@@ -187,7 +254,6 @@ class Admin extends BaseController
             'arboles' => $arboles,
         ]);
     }
-
 
     public function createSpecies()
     {
@@ -224,7 +290,7 @@ class Admin extends BaseController
         $this->checkAdmin();
 
         $especieModel = new EspecieModel();
-        $id = $this->request->getPost('especie_id');
+        $id = $this->request->getPost('especie_id'); // Recupera el ID de la especie desde el formulario
         $data = [
             'nombre_comercial' => $this->request->getPost('nombre_comercial'),
             'nombre_cientifico' => $this->request->getPost('nombre_cientifico'),
