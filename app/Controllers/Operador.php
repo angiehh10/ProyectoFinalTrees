@@ -84,6 +84,21 @@ class Operador extends BaseController
 
         $actualizacionModel = new ActualizacionModel();
 
+        // Validación de datos
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'arbol_id' => 'required|integer',
+            'tamano' => 'required|max_length[50]',
+            'estado' => 'required|in_list[Disponible,Vendido]',
+            'foto' => 'permit_empty|uploaded[foto]|max_size[foto,1024]|is_image[foto]',
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            // Si la validación falla, regresar con errores
+            return redirect()->back()->withInput()->with('error', implode('<br>', $validation->getErrors()));
+        }
+
+        // Procesar datos de la actualización
         $data = [
             'arbol_id' => $this->request->getPost('arbol_id'),
             'tamano' => $this->request->getPost('tamano'),
@@ -93,19 +108,20 @@ class Operador extends BaseController
 
         // Manejar la foto
         $file = $this->request->getFile('foto');
-        if ($file && $file->isValid()) {
-            $filePath = WRITEPATH . 'uploads';
-            $file->move($filePath);
-            $data['foto'] = '/uploads/' . $file->getName();
-        } else {
-            return redirect()->back()->with('error', 'Error al cargar la foto.');
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            $fileName = $file->getRandomName();
+            $file->move(FCPATH . 'uploads', $fileName); // Mover a la carpeta `public/uploads`
+            $data['foto'] = $fileName; // Guardar la ruta relativa
         }
 
         // Intentar registrar la actualización
         if ($actualizacionModel->insert($data)) {
+            // Mensaje de éxito
             return redirect()->back()->with('mensaje', 'Actualización registrada correctamente.');
         } else {
+            // Mensaje de error si falla la inserción
             return redirect()->back()->with('error', 'No se pudo registrar la actualización.');
         }
     }
+
 }

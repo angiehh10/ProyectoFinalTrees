@@ -66,7 +66,7 @@
                         <td><?= esc($arbol['ubicacion_geografica']); ?></td>
                         <td><?= esc($arbol['precio']); ?></td>
                         <td>
-                        <a href="<?= base_url('amigo/comprar/' . $arbol['id']); ?>" class="btn btn-primary">Solicitar Compra</a>
+                            <a href="<?= base_url('amigo/comprar/' . $arbol['id']); ?>" class="btn btn-primary btn-sm">Solicitar Compra</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

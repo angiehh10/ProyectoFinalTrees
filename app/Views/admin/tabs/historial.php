@@ -37,9 +37,9 @@
                         <td><?= esc($item['tamano']); ?></td>
                         <td><?= esc($item['estado']); ?></td>
                         <td>
-                            <?php if (!empty($item['foto'])): ?>
-                                <img src="<?= base_url($item['foto']); ?>" alt="Foto del árbol" width="100">
-                            <?php else: ?>
+                        <?php if (!empty($item['foto'])): ?>
+                        <img src="<?= base_url('uploads/' . $item['foto']); ?>" alt="Foto del árbol" width="100">
+                        <?php else: ?>
                                 Sin foto
                             <?php endif; ?>
                         </td>
@@ -51,4 +51,3 @@
         <p>No hay actualizaciones registradas para este árbol.</p>
     <?php endif; ?>
 </div>
-

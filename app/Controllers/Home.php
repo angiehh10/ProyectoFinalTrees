@@ -44,8 +44,7 @@ class Home extends BaseController
 
         return redirect()->to('/login')->with('error', 'Usuario o contraseña incorrectos.');
     }
-
-
+    
     public function logout()
     {
     session()->destroy(); // Destruye la sesión

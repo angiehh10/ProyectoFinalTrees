@@ -11,6 +11,7 @@
                     <th>Fecha de Actualización</th>
                     <th>Tamaño</th>
                     <th>Estado</th>
+                    <th>Foto</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,6 +20,15 @@
                         <td><?= esc($actualizacion['fecha_actualizacion']); ?></td>
                         <td><?= esc($actualizacion['tamano']); ?></td>
                         <td><?= esc($actualizacion['estado']); ?></td>
+                        <td>
+                            <?php if (!empty($actualizacion['foto'])): ?>
+                                <img src="<?= base_url('uploads/' . esc($actualizacion['foto'])); ?>" 
+                                     alt="Foto de actualización" 
+                                     style="width: 100px; height: auto; border: 1px solid #ccc; border-radius: 4px;">
+                            <?php else: ?>
+                                No disponible
+                            <?php endif; ?>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -27,7 +37,7 @@
         <p>No hay actualizaciones disponibles para este árbol.</p>
     <?php endif; ?>
 
-    <a href="<?= base_url('amigo'); ?>" class="btn btn-secondary mt-3">Regresar</a>
+    <a href="<?= base_url('amigo'); ?>" class="btn btn-primary">Regresar</a>
 </div>
 
 <?php echo view('footer'); ?>

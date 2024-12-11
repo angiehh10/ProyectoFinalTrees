@@ -1,7 +1,7 @@
 <div class="card my-4">
     <div class="card-body">
         <h4>Crear Nueva Especie</h4>
-        <form action="<?= base_url('/admin/saveEspecie') ?>" method="POST">
+        <form action="<?= base_url('/admin/createSpecies') ?>" method="POST">
             <div class="mb-3">
                 <label for="nombre_comercial" class="form-label text-start d-block">Nombre Comercial</label> <!-- Alineado a la izquierda -->
                 <input type="text" name="nombre_comercial" id="nombre_comercial" class="form-control" placeholder="Ingrese el nombre comercial" required>

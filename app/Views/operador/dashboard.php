@@ -10,8 +10,17 @@
 <body>
     <!-- Header -->
     <?php echo view('header'); ?>
-
     <div class="container my-5">
+    <?php if (session()->getFlashdata('mensaje')): ?>
+    <div class="alert alert-success">
+        <?= session()->getFlashdata('mensaje'); ?>
+        </div>
+    <?php endif; ?>
+    <?php if (session()->getFlashdata('error')): ?>
+        <div class="alert alert-danger">
+            <?= session()->getFlashdata('error'); ?>
+        </div>
+    <?php endif; ?>
         <!-- Título del Panel -->
         <h1 class="text-center mb-4">Dashboard del Operador</h1>
 
@@ -69,4 +78,3 @@
     <script src="<?= base_url('js/operador.js'); ?>"></script>
 </body>
 </html>
-

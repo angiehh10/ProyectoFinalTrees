@@ -45,3 +45,4 @@ class Auth extends BaseController
         return view('auth/login', ['loginError' => $loginError]);
     }
 }
+
