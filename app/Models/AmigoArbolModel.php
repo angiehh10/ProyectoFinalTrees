@@ -18,17 +18,9 @@ class AmigoArbolModel extends Model
         $builder->join('especies', 'arboles.especie_id = especies.id');
         $builder->where('arboles.id', $id);
 
-        return $builder->get()->getRowArray(); // Recupera un solo resultado como array
+        return $builder->get()->getRowArray();
     }
-
-    public function registrarCompra($amigoId, $arbolId)
-    {
-        return $this->insert([
-            'amigo_id' => $amigoId,
-            'arbol_id' => $arbolId,
-        ]);
-    }    
-
+  
     public function obtenerArbolesPorAmigo($amigo_id)
     {
         $db = \Config\Database::connect();
@@ -42,12 +34,21 @@ class AmigoArbolModel extends Model
     }
 
 
+    public function registrarCompra($amigoId, $arbolId)
+    {
+        return $this->insert([
+            'amigo_id' => $amigoId,
+            'arbol_id' => $arbolId,
+        ]);
+    }
+
     public function actualizarEstadoArbol($arbolId, $estado)
     {
         return $this->db->table('arboles')
             ->where('id', $arbolId)
             ->update(['estado' => $estado]);
     }
+
     
     public function obtenerArbolesDisponibles()
     {

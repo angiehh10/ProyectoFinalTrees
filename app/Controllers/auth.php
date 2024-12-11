@@ -26,9 +26,19 @@ class Auth extends BaseController
                 ]);
 
                 // Redirigir según el rol
-                return redirect()->to($user['rol'] === 'Administrador' ? '/admin' : '/amigo');
+                switch ($user['rol']) {
+                    case 'Administrador':
+                        return redirect()->to('/admin');
+                    case 'Amigo':
+                        return redirect()->to('/amigo');
+                    case 'Operador':
+                        return redirect()->to('/operador');
+                    default:
+                        session()->destroy(); // Si el rol es desconocido, destruye la sesión
+                        return redirect()->to('/login')->with('error', 'Rol no autorizado.');
+                }
             } else {
-                $loginError = $user['error'] ?? 'Error desconocido al iniciar sesión.';
+                $loginError = $user['error'] ?? 'Correo o contraseña incorrectos.';
             }
         }
 

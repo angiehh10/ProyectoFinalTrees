@@ -49,6 +49,7 @@
                                 </div>
                                 <form action="<?= base_url('/admin/updateEspecie/' . $especie['id']) ?>" method="POST">
                                     <?= csrf_field() ?>
+                                    <input type="hidden" name="especie_id" value="<?= $especie['id'] ?>">
                                     <div class="modal-body">
                                         <div class="mb-3">
                                             <label for="nombre_comercial_<?= $especie['id'] ?>" class="form-label text-start d-block">Nombre Comercial</label> <!-- Alineado a la izquierda -->

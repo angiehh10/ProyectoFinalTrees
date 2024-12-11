@@ -1,0 +1,245 @@
+CRITICAL - 2024-12-11 03:27:24 --> Error: Class "App\Models\AmigoArbolModel" not found
+[Method: GET, Route: amigo]
+in APPPATH\Controllers\amigo.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Amigo->index()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Amigo))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 03:28:57 --> Error: Class "App\Models\AmigoArbolModel" not found
+[Method: GET, Route: amigo]
+in APPPATH\Controllers\amigo.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Amigo->index()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Amigo))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 03:39:00 --> ErrorException: Undefined variable $amigos
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\tabs\amigos.php on line 12.
+ 1 APPPATH\Views\admin\tabs\amigos.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $amigos', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\admin\\tabs\\amigos.php', 12)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\admin\\tabs\\amigos.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/tabs/amigos', [], true)
+ 5 APPPATH\Views\admin\dashboard.php(84): view('admin/tabs/amigos', [])
+ 6 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\admin\\dashboard.php')
+ 7 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 9 APPPATH\Controllers\admin.php(62): view('admin/dashboard', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:01:03 --> ParseError: syntax error, unexpected variable "$arbol", expecting "function" or "const"
+[Method: GET, Route: amigo]
+in APPPATH\Controllers\amigo.php on line 81.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Controllers\\Amigo.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Amigo')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Amigo')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Amigo', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:01:13 --> ParseError: syntax error, unexpected variable "$arbol", expecting "function" or "const"
+[Method: GET, Route: amigo]
+in APPPATH\Controllers\amigo.php on line 81.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Controllers\\Amigo.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Amigo')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Amigo')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Amigo', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:01:19 --> ParseError: syntax error, unexpected variable "$arbol", expecting "function" or "const"
+[Method: GET, Route: amigo]
+in APPPATH\Controllers\amigo.php on line 81.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Controllers\\Amigo.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Amigo')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Amigo')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Amigo', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:01:21 --> ParseError: syntax error, unexpected variable "$arbol", expecting "function" or "const"
+[Method: GET, Route: amigo/comprar/5]
+in APPPATH\Controllers\amigo.php on line 81.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Controllers\\Amigo.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Amigo')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Amigo')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Amigo', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:01:22 --> ParseError: syntax error, unexpected variable "$arbol", expecting "function" or "const"
+[Method: GET, Route: amigo]
+in APPPATH\Controllers\amigo.php on line 81.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Controllers\\Amigo.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Amigo')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Amigo')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Amigo', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:01:28 --> ParseError: syntax error, unexpected variable "$arbol", expecting "function" or "const"
+[Method: GET, Route: amigo]
+in APPPATH\Controllers\amigo.php on line 81.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Controllers\\Amigo.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Amigo')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Amigo')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Amigo', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:01:58 --> ParseError: syntax error, unexpected variable "$arbol", expecting "function" or "const"
+[Method: GET, Route: amigo]
+in APPPATH\Controllers\amigo.php on line 81.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Controllers\\Amigo.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Amigo')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Amigo')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Amigo', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:32:42 --> Error: Class "App\Controllers\ArbolModel" not found
+[Method: GET, Route: amigo/comprar/5]
+in APPPATH\Controllers\amigo.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Amigo->mostrarFormularioCompra('5')
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Amigo))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:32:53 --> Error: Class "App\Controllers\ArbolModel" not found
+[Method: GET, Route: amigo/comprar/5]
+in APPPATH\Controllers\amigo.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Amigo->mostrarFormularioCompra('5')
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Amigo))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:34:46 --> ErrorException: Undefined array key "nombre_comercial"
+[Method: GET, Route: amigo/comprar/5]
+in APPPATH\Views\amigo\comprar.php on line 5.
+ 1 APPPATH\Views\amigo\comprar.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre_comercial"', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('amigo/comprar', [], true)
+ 5 APPPATH\Controllers\amigo.php(56): view('amigo/comprar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Amigo->mostrarFormularioCompra('5')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Amigo))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:36:27 --> ErrorException: Undefined array key "nombre_comercial"
+[Method: GET, Route: amigo/comprar/5]
+in APPPATH\Views\amigo\comprar.php on line 5.
+ 1 APPPATH\Views\amigo\comprar.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre_comercial"', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('amigo/comprar', [], true)
+ 5 APPPATH\Controllers\amigo.php(56): view('amigo/comprar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Amigo->mostrarFormularioCompra('5')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Amigo))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:43:21 --> ErrorException: Undefined array key "nombre_comercial"
+[Method: GET, Route: amigo/comprar/5]
+in APPPATH\Views\amigo\comprar.php on line 5.
+ 1 APPPATH\Views\amigo\comprar.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre_comercial"', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('amigo/comprar', [], true)
+ 5 APPPATH\Controllers\amigo.php(56): view('amigo/comprar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Amigo->mostrarFormularioCompra('5')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Amigo))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:46:14 --> ErrorException: Undefined array key "nombre_comercial"
+[Method: GET, Route: amigo/comprar/5]
+in APPPATH\Views\amigo\comprar.php on line 5.
+ 1 APPPATH\Views\amigo\comprar.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre_comercial"', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('amigo/comprar', [], true)
+ 5 APPPATH\Controllers\amigo.php(56): view('amigo/comprar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Amigo->mostrarFormularioCompra('5')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Amigo))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:46:40 --> ErrorException: Undefined array key "nombre_comercial"
+[Method: GET, Route: amigo/comprar/5]
+in APPPATH\Views\amigo\comprar.php on line 5.
+ 1 APPPATH\Views\amigo\comprar.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre_comercial"', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('amigo/comprar', [], true)
+ 5 APPPATH\Controllers\amigo.php(56): view('amigo/comprar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Amigo->mostrarFormularioCompra('5')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Amigo))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:54:20 --> ErrorException: Undefined array key "nombre_comercial"
+[Method: GET, Route: amigo/comprar/5]
+in APPPATH\Views\amigo\comprar.php on line 5.
+ 1 APPPATH\Views\amigo\comprar.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre_comercial"', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('amigo/comprar', [], true)
+ 5 APPPATH\Controllers\amigo.php(56): view('amigo/comprar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Amigo->mostrarFormularioCompra('5')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Amigo))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 04:54:52 --> ErrorException: Undefined array key "nombre_comercial"
+[Method: GET, Route: amigo/comprar/5]
+in APPPATH\Views\amigo\comprar.php on line 5.
+ 1 APPPATH\Views\amigo\comprar.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre_comercial"', 'C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\Proyecto Final\\ProyectoFinalTreesCopia\\app\\Views\\amigo\\comprar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('amigo/comprar', [], true)
+ 5 APPPATH\Controllers\amigo.php(56): view('amigo/comprar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Amigo->mostrarFormularioCompra('5')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Amigo))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-12-11 05:20:48 --> Solicitud no válida.
+CRITICAL - 2024-12-11 06:14:02 --> ErrorException: Cannot use bool as default value for property Config\Security::$csrfProtection of type string
+[Method: GET, Route: /]
+in APPPATH\Config\Security.php on line 18.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-12-11 06:14:05 --> ErrorException: Cannot use bool as default value for property Config\Security::$csrfProtection of type string
+[Method: GET, Route: amigo/comprar/5]
+in APPPATH\Config\Security.php on line 18.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

@@ -56,14 +56,14 @@
                 <a class="nav-link <?= $tab === 'actualizacion' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=actualizacion') ?>">Registrar Actualización</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?= $tab === 'amigos' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=amigos') ?>">Ver Amigos</a>
+                <a class="nav-link <?= $tab === 'historial' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=historial') ?>">Historial</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?= $tab === 'usuarios' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=usuarios') ?>">Administrar Usuarios</a>
-        </li>
+                <a class="nav-link <?= $tab === 'amigos' ? 'active' : '' ?>" href="<?= base_url('/admin?tab=amigos') ?>">Ver Amigos</a>
+            </li>
         </ul>
 
-                <!-- Contenido de Pestañas -->
+        <!-- Contenido de Pestañas -->
         <div class="tab-content mt-4" id="adminTabContent">
             <?php 
             // Renderizar la vista de la pestaña activa
@@ -71,30 +71,29 @@
                 case 'especies':
                     echo view('admin/tabs/especies', ['especies' => $especies]);
                     break;
-
                 case 'arboles':
                     echo view('admin/tabs/arboles', ['arboles' => $arboles, 'especies' => $especies]);
                     break;
-
                 case 'actualizacion':
                     echo view('admin/tabs/actualizacion', ['arboles' => $arboles]);
                     break;
+                case 'historial':
+                    echo view('admin/tabs/historial', ['arboles' => $arboles, 'historial' => $historial, 'arbol' => $arbol]);
+                    break;
                 case 'amigos':
-                    echo view('admin/tabs/amigos', ['arboles' => $arboles, 'amigos' => $amigos]);
+                    echo view('admin/tabs/amigos', []);
                     break;
-                case 'usuarios':
-                    echo view('admin/tabs/usuarios', ['usuarios' => $usuarios]);
-                    break;
-
                 default:
                     echo "<p class='text-center'>Seleccione una pestaña para comenzar.</p>";
                     break;
             }
             ?>
         </div>
-                
     <!-- Footer -->
     <?php echo view('footer'); ?>
 
+    <!-- Archivo de JavaScript -->
+    <script src="<?= base_url('js/admin.js'); ?>"></script>
 </body>
 </html>
+

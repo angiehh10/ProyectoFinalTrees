@@ -7,13 +7,17 @@
     <p>Ubicación: <?= esc($arbol['ubicacion_geografica']); ?></p>
     <p>Precio: <?= number_format($arbol['precio'], 2); ?></p>
     <?php if (!empty($arbol['foto'])): ?>
-            <img src="<?= base_url('uploads/' . $arbol['foto']); ?>" alt="<?= esc($arbol['nombre_comercial']); ?>" style="max-width: 300px; height: auto;">
-        <?php endif; ?>
+        <img src="<?= base_url('uploads/' . $arbol['foto']); ?>" alt="<?= esc($arbol['nombre_comercial']); ?>" style="max-width: 300px; height: auto;">
+    <?php endif; ?>
 
-        <form action="<?= base_url('amigo/comprar/' . $arbol['id']); ?>" method="post">
+    <form action="<?= base_url('amigo/comprar'); ?>" method="post">
+        <input type="hidden" name="arbol_id" value="<?= esc($arbol['id']); ?>">
         <button type="submit" class="btn btn-success">Confirmar Compra</button>
         <a href="<?= base_url('amigo'); ?>" class="btn btn-danger">Cancelar Compra</a>
     </form>
+
+
 </div>
 
 <?php echo view('footer'); ?>
+

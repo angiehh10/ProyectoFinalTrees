@@ -32,8 +32,20 @@ class ArbolModel extends Model
 
     public function obtenerArbolPorId($id)
     {
-        return $this->find($id);
+        $db = \Config\Database::connect();
+        $builder = $db->table('arboles');
+        $builder->select('arboles.*, especies.nombre_comercial, especies.nombre_cientifico, especies.id as especie_id'); 
+        $builder->join('especies', 'arboles.especie_id = especies.id'); 
+        $builder->where('arboles.id', $id);
+
+        return $builder->get()->getRowArray(); // Recupera un único resultado como array
     }
+
+    public function obtenerArbolesParaActualizacion()
+    {
+        return $this->select('id, ubicacion_geografica')->findAll();
+    }
+
 
     public function countArbolesDisponibles()
     {
